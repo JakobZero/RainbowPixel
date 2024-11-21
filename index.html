@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RainbowPixel</title>
+    <link rel="icon" href="assets/images/RP_Logo_104_right.ico" type="image/x-icon">
+    <style>
+        /* 全局样式 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: auto%;  /* 高度自动适应内容 */
+            overflow-x: auto; /* 启用垂直滚动 */
+        }
+
+        /* 背景图片样式 */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #37c1dd; /* 填充空白区域的背景颜色 */
+            z-index: -1; /* 背景位于内容下方 */
+            overflow: hidden; /* 确保背景图片不会溢出容器 */
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/images/Cover_1920_Brig.png') no-repeat center center;
+            background-size: cover;
+        }
+
+        /* 背景滚动减速效果 */
+        body[data-scroll] {
+            background-attachment: fixed;
+            background-position: center 0;
+            background-repeat: no-repeat;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(121, 25, 101, 1); /* 背景颜色，带透明效果 */
+            color: #fff;
+            padding: 10px 0;
+            z-index: 10;
+            display: flex;
+            flex-direction: column; /* 让主标题在导航栏下方 */
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 导航栏 */
+        nav {
+            display: flex;
+            justify-content: center; /* 按钮居中对齐 */
+            overflow-x: auto; /* 启用水平滚动 */
+            padding: 10px 0;
+            white-space: nowrap; /* 防止按钮换行 */
+            scroll-behavior: smooth; /* 平滑滚动效果（可选） */
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            flex-shrink: 0; /* 防止按钮缩小 */
+        }
+
+        nav a:hover {
+            background-color: #ff6584;
+        }
+
+        /* 空白区域 */
+        .spacer {
+            height: 90vh; /* 空白区域为一个屏幕高度 */
+        }
+
+        /* 主内容样式 */
+        main {
+            background: white;
+            color: black;
+            padding: 100px 20px 20px; /* 上移 80px */
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1200px; /* 可选，设置最大宽度来控制main的宽度 */
+        }
+
+        section {
+            margin: 40px 0;
+        }
+
+        /* 主标题 */
+        .main-title {
+            position: absolute; /* 相对于视口定位 */
+            top: calc(60px + 60px); /* 60px 为 header 高度，20px 为间距 */
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 36px; /* 主标题字体大小 */
+            font-weight: bold; /* 加粗 */
+            z-index: 9; /* 确保标题不被背景遮盖 */
+        }
+
+        /* 标题样式 */
+        .section-title {
+            background: rgba(121, 25, 101, 0.9);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* 横向滚动样式 */
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .scroll-container img {
+            max-height: 200px;
+            height: auto;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .scroll-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .video-thumbnail img {
+            width: 100%;          /* 图片宽度占满父容器 */
+            max-width: 320px;     /* 限制图片最大宽度 */
+            height: auto;         /* 保持图片比例 */
+            object-fit: cover;    /* 确保裁剪后图片不变形 */
+            border-radius: 8px;   /* 可选：添加圆角 */
+}
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body data-scroll>
+    <!-- 背景图片 -->
+    <div class="background-image"></div>
+
+    <!-- 固定导航栏 -->
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="support.html">Support</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <!-- 主标题 -->
+    <div class="main-title">
+        RainbowPixel Studio
+    </div>
+    <!-- 空白区域 -->
+    <div class="spacer"></div>
+
+    <!-- 主体内容 -->
+    <main>
+        <section>
+            <img src="assets/images/RP_Logo_104_right_wb.png" alt="Studio Logo">
+            <h2>RainbowPixel Studio</h2>
+            <p>RainbowPixel is a vibrant and creative young team dedicated to content creation for the Minecraft Marketplace. We specialize in developing high-quality texture packs, skin packs, behavior packs, and maps, delivering diverse and exciting experiences for players. Our goal is to showcase the endless possibilities of Minecraft through unique creativity and professional craftsmanship, lighting up the blocky worlds of every player!</p>
+        </section>
+        <!-- 展示区 -->
+        <section>
+            <div class="section-title">Exhibition</div>
+            <div class="scroll-container">
+                <img src="assets/screenshots/2023-09-02_00.17.19.png" alt="Demo 1">
+                <img src="assets/screenshots/2023-09-02_00.20.13.png" alt="Demo 2">
+                <img src="assets/screenshots/2023-09-02_01.01.14.png" alt="Demo 3">
+                <img src="assets/screenshots/2023-09-02_00.39.07.png" alt="Demo 4">
+                <img src="assets/screenshots/2023-09-04_01.17.04.png" alt="Demo 5">
+                <img src="assets/screenshots/2023-09-04_01.46.58.png" alt="Demo 6">
+            </div>
+        </section>
+
+        <!-- 作品展示区 -->
+        <section>
+            <div class="section-title">Protfolio</div>
+            <div class="scroll-container">
+                <img src="assets/images/work1.jpg" alt="Work 1">
+                <img src="assets/images/work2.jpg" alt="Work 2">
+                <img src="assets/images/work3.jpg" alt="Work 3">
+            </div>
+        </section>
+
+        <!-- YouTube 视频展示区 -->
+        <section>
+            <div class="section-title">Video Preview</div>
+            <div class="scroll-container">
+                <a href="https://youtu.be/nosRGLEdd-c?si=lGDPBo-7Fq3aiVdF" target="_blank"> <img src="https://img.youtube.com/vi/nosRGLEdd-c/hqdefault.jpg" alt="Video Thumbnail" > </a>
+                <a href="https://youtu.be/qLEBkCaoqh8?si=yLcbAv-PL4dzpI-I" target="_blank"> <img src="https://img.youtube.com/vi/qLEBkCaoqh8/hqdefault.jpg" alt="Video Thumbnail" > </a>
+                <a href="https://youtu.be/TGEj-YfKJzc?si=qRQCv9rHQWzc97Gp" target="_blank"> <img src="https://img.youtube.com/vi/TGEj-YfKJzc/hqdefault.jpg" alt="Video Thumbnail" > </a>
+                <a href="https://youtu.be/RyfhZeumv_U?si=mnKLw0HcYSjN89IA" target="_blank"> <img src="https://img.youtube.com/vi/RyfhZeumv_U/hqdefault.jpg" alt="Video Thumbnail" > </a>
+                <a href="https://youtu.be/zdlCZ56x13c?si=dOIwqagCXjKfTIUw" target="_blank"> <img src="https://img.youtube.com/vi/zdlCZ56x13c/hqdefault.jpg" alt="Video Thumbnail" > </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2024 RainbowPixel. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // 动态调整背景图片滚动速度
+        const background = document.querySelector('.background-image');
+
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            background.style.backgroundPositionY = `${scrollPosition * 0.4}px`; // 调整滚动速度，0.5 为减缓比例
+        });
+    </script>
+</body>
+</html>
