@@ -88,6 +88,7 @@
         /* 空白区域 */
         .spacer {
             height: 90vh; /* 空白区域为一个屏幕高度 */
+            background: none; /* 确保没有背景色遮挡 */
         }
 
         /* 主内容样式 */
@@ -98,6 +99,7 @@
             margin: 0 auto;
             max-width: 100%; /* 可选，设置最大宽度来控制main的宽度 */
             box-sizing: border-box; /* 确保 padding 不影响宽度计算 */
+            position: relative; /* 确保覆盖在 spacer 之上 */
         }
 
         section {
